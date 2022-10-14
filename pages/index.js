@@ -26,7 +26,7 @@ export default function Home() {
           <Button colorScheme={"linkedin"}>
             <a href="https://www.linkedin.com/in/anshmpatel/" target="_blank" rel="noreferrer">LinkedIn</a>
           </Button>
-          <Button colorScheme={"blackAlpha"}>
+          <Button colorScheme={"purple"}>
             <a href="https://github.com/anshpatelcs" target="_blank" rel="noreferrer">GitHub</a>
           </Button>
         </HStack>
