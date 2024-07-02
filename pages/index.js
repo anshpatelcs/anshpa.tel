@@ -60,15 +60,15 @@ export default function Home() {
     const bioText = "Currently a computer science student at the University of Minnesota.";
 
     return (
-        <Box bg={bgColor} color={textColor} minHeight="100vh">
-            <Box top={0} left={0} width={"100%"} zIndex={1} py={4} px={20}>
+        <Box bg={bgColor} color={textColor} minHeight="100vh" py={4} px={60}>
+            <Box top={0} left={0} width={"100%"} zIndex={1}>
                 <HStack justifyContent={"space-between"}>
                     <Heading fontSize={"30px"}>
                         <Button backgroundColor={"transparent"} onClick={toggleColorMode} _hover={{ bg: "transparent" }} fontSize={"30px"}>
                             AP
                         </Button>
                     </Heading>
-                    <HStack paddingLeft={"100px"}>
+                    <HStack>
                         <Button color={textColor} backgroundColor={"transparent"} _hover={{ bg: "transparent" }} borderRadius={"100px"} onClick={() => window.open("https://umn.lol")}>
                             <Text as={motion.div} variants={buttonHover} whileHover="hover">
                                 About Me
@@ -89,19 +89,37 @@ export default function Home() {
                                 <a href="https://github.com/anshpatelcs" target="_blank" rel="noreferrer">GitHub</a>
                             </Text>
                         </Button>
-                        <Button color={"white"} onClick={() => window.open("https://umn.lol")} borderRadius={"100px"} backgroundColor={"black"} _hover={{
-                            backgroundColor: "gray.800",
-                            transition: "0.3s",
-                        }}>
+                        <Button
+                            color={"white"}
+                            onClick={() => {
+                                try {
+                                    const link = document.createElement('a');
+                                    link.href = '../public/resume_ansh.pdf';  // Make sure this is the correct path to your file
+                                    link.download = 'Ansh_Patel_Resume.pdf';  // This is the filename that will be suggested to download
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+                                } catch (error) {
+                                    console.error('Error downloading the file: ', error);
+                                    alert('Failed to download the file.');
+                                }
+                            }}
+                            borderRadius={"100px"}
+                            backgroundColor={"#33A2F1"}
+                            _hover={{
+                                borderBottom: "2px solid #FFF",
+                                transition: "0.3s",
+                            }}
+                        >
                             Resume
                         </Button>
                     </HStack>
                 </HStack>
             </Box>
 
-            <Box py={100} px={20}>
-                <HStack>
-                    <Box display={"flex"} flexDirection={"column"} minHeight={"100vh"} maxWidth={"50%"} marginTop={100}>
+            <Box paddingTop={20}>
+                <HStack justifyContent={"space-between"} overflowWrap={"normal"} wrap={{ base: "wrap", md: "nowrap" }}>
+                    <Box display={"flex"} flexDirection={"column"} minHeight={"100vh"} w={{ base: "100%", md: "50%" }} marginTop={100}>
                         <motion.div
                             variants={typingEffect}
                             custom={0}
@@ -109,7 +127,7 @@ export default function Home() {
                             animate="visible"
                         >
                             {introText.split("").map((char, index) => (
-                                <motion.span key={index} variants={letterAnimation} style={{ fontSize: "120px", fontWeight: "bold", color: "#ADD8E6" }}>
+                                <motion.span key={index} variants={letterAnimation} style={{ fontSize: "80px", fontWeight: "bold", color: "#33A2F1" }}>
                                     {char}
                                 </motion.span>
                             ))}
@@ -134,36 +152,36 @@ export default function Home() {
                             animate="visible"
                         >
                             {bioText.split("").map((char, index) => (
-                                <motion.span key={index} variants={letterAnimation} style={{ fontSize: "30px", color: subTextColor }}>
+                                <motion.span key={index} variants={letterAnimation} style={{ fontSize: "25px", color: subTextColor }}>
                                     {char}
                                 </motion.span>
                             ))}
                         </motion.div>
                     </Box>
-                    <Box display="flex" width="50%" height="100%" marginTop={-100}>
-                        <motion.div whileHover="hover" variants={imageHover}>
-                            <ChakraImage src={wave.src} alt="Origami Wave" width="600px" height="600px" marginTop="-400px" />
+                    <Box
+                        display="flex"
+                        w={{ base: "100%", md: "50%" }}
+                        position="relative"
+                        height="110vh" // This ensures the box takes the full height of the viewport
+                        overflow="hidden"
+                        marginTop={{ base: 4, md: -100 }}
+                    >                        <motion.div whileHover="hover" variants={imageHover}>
+                            <ChakraImage
+                                src={wave.src}
+                                alt="Origami Wave"
+                                width="100%"
+                                height="auto" // Maintains aspect ratio
+                                minHeight="300px" // Minimum size to prevent it from becoming too small
+                                maxWidth="100%" // Ensures it does not stretch beyond its container
+                                objectFit="contain"
+                            />
                         </motion.div>
                     </Box>
+
                 </HStack>
-                {/*<Box>*/}
-                {/*    <Box>*/}
-                {/*        <Heading fontSize={"70px"} color={"#ADD8E6"} paddingBottom={5}>About Me</Heading>*/}
-                {/*        <Box width={"50%"} backgroundColor={"#ADD8E6"} borderRadius={"5px"}>*/}
-                {/*            <Text fontSize={"20px"} color={"black"} px={5} py={5}>I am a computer science student at the University of Minnesota. I am passionate about software development and enjoy working on projects that challenge me. I am always looking to learn new things and improve my skills. I am currently seeking internship opportunities for the summer of 2024.</Text>*/}
-                {/*        </Box>*/}
-                {/*    <Box>*/}
-                {/*        <Box>*/}
-                {/*            <Heading fontSize={"70px"} color={"#ADD8E6"}>Work Experience</Heading>*/}
-                {/*            </Box>*/}
-                {/*        </Box>*/}
-                {/*        <HStack>*/}
-                {/*            <Box display="flex" marginTop={-100}>*/}
-                {/*            </Box>*/}
-                {/*        </HStack>*/}
-                {/*        <WorkExperience/>*/}
-                {/*    </Box>*/}
-                {/*</Box>*/}
+                <Box>
+                    <WorkExperience/>
+                </Box>
             </Box>
         </Box>
     );

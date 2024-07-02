@@ -9,15 +9,15 @@ const WorkExperience = () => {
             role: "Software Engineer Intern",
             duration: "June 2024 - Present",
             logo: djlogo,
-            description: "Led a team in developing scalable software solutions, improving application efficiency and reliability."
+            description: "Machine Learning and AI for News Automation."
         },
         {
             id: 2,
-            company: "Company B",
-            role: "Intern",
-            duration: "May 2018 - Dec 2019",
+            company: "Samsung",
+            role: "Software Engineer Intern",
+            duration: "June 2023 - August 2023",
             logo: "../../../public/samsunglogo.png",
-            description: "Contributed to project X that resulted in a 20% increase in efficiency."
+            description: "Worked on SmartHome platform, SmartThings developing a network topology tool for IoT devices."
         },
         // Additional experiences can be added here
     ];
