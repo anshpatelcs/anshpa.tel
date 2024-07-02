@@ -119,7 +119,7 @@ export default function Home() {
 
             <Box paddingTop={{base: "10", md: "20"}}>
                 <HStack justifyContent={"space-between"} overflowWrap={"normal"} wrap={{ base: "wrap", md: "nowrap" }}>
-                    <Box display={"flex"} flexDirection={"column"} minHeight={"100vh"} w={{ base: "100%", md: "50%" }} marginTop={100} marginBottom={{base:"-200", md: "0"}}>
+                    <Box display={"flex"} flexDirection={"column"} minHeight={"100vh"} w={{ base: "100%", md: "100%" }} marginTop={100} marginBottom={{base:"-200", md: "0"}}>
                         <motion.div
                             variants={typingEffect}
                             custom={0}
