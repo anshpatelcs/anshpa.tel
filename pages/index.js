@@ -25,8 +25,8 @@ const typingEffect = {
     visible: i => ({
         opacity: 1,
         transition: {
-            delay: i * 0.5,
-            staggerChildren: 0.08,
+            delay: i * 0.1,
+            staggerChildren: 0.02,
         }
     })
 };
@@ -146,24 +146,24 @@ export default function Home() {
                         </motion.div>
                     </Box>
                 </HStack>
-                <Box>
-                    <Box>
-                        <Heading fontSize={"70px"} color={"#ADD8E6"} paddingBottom={5}>About Me</Heading>
-                        <Box width={"50%"} backgroundColor={"#ADD8E6"} borderRadius={"5px"}>
-                            <Text fontSize={"20px"} color={"black"} px={5} py={5}>I am a computer science student at the University of Minnesota. I am passionate about software development and enjoy working on projects that challenge me. I am always looking to learn new things and improve my skills. I am currently seeking internship opportunities for the summer of 2024.</Text>
-                        </Box>
-                    <Box>
-                        <Box>
-                            <Heading fontSize={"70px"} color={"#ADD8E6"}>Work Experience</Heading>
-                            </Box>
-                        </Box>
-                        <HStack>
-                            <Box display="flex" marginTop={-100}>
-                            </Box>
-                        </HStack>
-                        <WorkExperience/>
-                    </Box>
-                </Box>
+                {/*<Box>*/}
+                {/*    <Box>*/}
+                {/*        <Heading fontSize={"70px"} color={"#ADD8E6"} paddingBottom={5}>About Me</Heading>*/}
+                {/*        <Box width={"50%"} backgroundColor={"#ADD8E6"} borderRadius={"5px"}>*/}
+                {/*            <Text fontSize={"20px"} color={"black"} px={5} py={5}>I am a computer science student at the University of Minnesota. I am passionate about software development and enjoy working on projects that challenge me. I am always looking to learn new things and improve my skills. I am currently seeking internship opportunities for the summer of 2024.</Text>*/}
+                {/*        </Box>*/}
+                {/*    <Box>*/}
+                {/*        <Box>*/}
+                {/*            <Heading fontSize={"70px"} color={"#ADD8E6"}>Work Experience</Heading>*/}
+                {/*            </Box>*/}
+                {/*        </Box>*/}
+                {/*        <HStack>*/}
+                {/*            <Box display="flex" marginTop={-100}>*/}
+                {/*            </Box>*/}
+                {/*        </HStack>*/}
+                {/*        <WorkExperience/>*/}
+                {/*    </Box>*/}
+                {/*</Box>*/}
             </Box>
         </Box>
     );
