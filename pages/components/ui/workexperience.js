@@ -23,8 +23,8 @@ const WorkExperience = () => {
         },
     ];
 
-    const timelineColor = useColorModeValue("yellow.500", "#FFCC16");
-    const boxBg = useColorModeValue("yellow.500", "#FFCC16");
+    const timelineColor = useColorModeValue("#FFCC16", "#FFCC16");
+    const boxBg = useColorModeValue("#FFCC16", "#FFCC16");
     const textColor = useColorModeValue("black", "black");
 
     const variants = {
