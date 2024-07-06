@@ -13,6 +13,11 @@ const AboutMe = () => {
         hover: { scale: 1.1, transition: { type: 'spring', stiffness: 300 } }
     };
 
+    // Function to handle click event
+    const handleConnectClick = () => {
+        window.open("https://www.linkedin.com/in/anshmpatel/", "_blank"); // Replace 'your-linkedin-id' with your actual LinkedIn ID
+    };
+
     return (
         <MotionFlex
             direction="column"
@@ -40,7 +45,7 @@ const AboutMe = () => {
             <Text fontSize="md" textAlign="center" px={3}>
                 Passionate Software Engineer | Tech Innovator | Student
             </Text>
-            <Button mt={5} colorScheme="yellow">Connect with Me</Button>
+            <Button mt={5} colorScheme="yellow" onClick={handleConnectClick}>Connect with Me</Button>
         </MotionFlex>
     );
 };
