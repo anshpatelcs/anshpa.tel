@@ -68,7 +68,7 @@ const SkillsGrid = () => {
                 color="white"
             >
                 <Text fontWeight="bold" fontSize="xl" mb={4}>Frontend</Text>
-                <SimpleGrid columns={5} spacing={6}>
+                <SimpleGrid columns={{sm:"4", md:"5"}} spacing={6}>
                     {skills.frontend.map((skill, index) => (
                         <Tooltip key={skill.name} label={skill.name} aria-label={skill.name}>
                             <VStack
@@ -94,7 +94,7 @@ const SkillsGrid = () => {
                 color="white"
             >
                 <Text fontWeight="bold" fontSize="xl" mb={4}>Backend</Text>
-                <SimpleGrid columns={5} spacing={6}>
+                <SimpleGrid columns={{sm:"4", md:"5"}} spacing={6}>
                     {skills.backend.map((skill, index) => (
                         <Tooltip key={skill.name} label={skill.name} aria-label={skill.name}>
                             <VStack
