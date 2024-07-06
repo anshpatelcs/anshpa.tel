@@ -82,7 +82,7 @@ export default function Home() {
     }
 
     return (
-        <Box bg={bgColor} color={textColor} minHeight="100vh" py={4} px={{sm: "5", md: "60"}} width={"100%"}>
+        <Box bg={bgColor} color={textColor} minHeight="100vh" py={4} px={{base: "5", md: "60"}} width={"100%"}>
             <Box top={0} left={0} width={"100%"} zIndex={1}>
                 <HStack justifyContent={"space-between"}>
                     <Heading fontSize={"30px"}>
@@ -126,9 +126,9 @@ export default function Home() {
                 </HStack>
             </Box>
 
-            <Box paddingTop={{sm: "10", md: "20"}}>
-                <HStack justifyContent={"space-between"} overflowWrap={"normal"} wrap={{ sm: "wrap", md: "nowrap" }}>
-                    <Box display={"flex"} flexDirection={"column"} minHeight={"100vh"} w={{ sm: "100%", md: "50%" }} marginTop={100} marginBottom={{sm:"-200", md: "0"}}>
+            <Box paddingTop={{base: "10", md: "20"}}>
+                <HStack justifyContent={"space-between"} overflowWrap={"normal"} wrap={{ base: "wrap", md: "nowrap" }}>
+                    <Box display={"flex"} flexDirection={"column"} minHeight={"100vh"} w={{ base: "100%", md: "50%" }} marginTop={100} marginBottom={{base:"-200", md: "0"}}>
                         <motion.div
                             variants={typingEffect}
                             custom={0}
@@ -196,11 +196,11 @@ export default function Home() {
                     </Box>
                     <Box
                         display="flex"
-                        w={{ sm: "0%", md: "50%" }}
+                        w={{ base: "0%", md: "50%" }}
                         position="relative"
-                        height={{ sm: "20vh", md: "110vh" }}
+                        height={{ base: "20vh", md: "110vh" }}
                         overflow="hidden"
-                        marginTop={{ sm: 0, md: -100 }}
+                        marginTop={{ base: 0, md: -100 }}
                     >
                         <motion.div whileHover="hover" variants={imageHover}>
                             <ChakraImage
