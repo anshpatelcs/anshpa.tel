@@ -17,8 +17,7 @@ const AboutMe = () => {
         <MotionFlex
             direction="column"
             align="center"
-            p={6}
-            m={4}
+            py={5}
             bg={bgColor}
             color={textColor}
             borderRadius="lg"

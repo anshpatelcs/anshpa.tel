@@ -27,7 +27,7 @@ const ProjectsGrid = () => {
     const hoverBoxShadow = useColorModeValue("0px 10px 15px rgba(0, 0, 0, 0.2)", "0px 10px 15px rgba(0, 0, 0, 0.9)");
 
     return (
-        <Grid templateColumns={{ sm: "1fr", md: "1fr 1fr" }} gap={6} p={5}>
+        <Grid templateColumns={{ sm: "1fr", md: "1fr 1fr" }} gap={6} py={5}>
             {projects.map(project => (
                 <VStack
                     key={project.id}

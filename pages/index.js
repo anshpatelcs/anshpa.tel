@@ -12,12 +12,14 @@ import {
     Icon
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { useRef } from 'react';
+import { keyframes } from '@emotion/react';
 import wave from "../public/oriwave.png";
 import WorkExperience from "./components/ui/workexperience";
 import AboutMe from "./components/ui/AboutMe";
 import ProjectsCarousel from "./components/ui/ProjectsCarousel";
+import Skills from "./components/ui/Skills";
 
 const buttonHover = {
     hover: {
@@ -63,12 +65,12 @@ export default function Home() {
     const introText = "Hi, I'm Ansh";
     const roleText = "Software Engineer";
     const bioText = "Currently a computer science student at the University of Minnesota.";
-    const workRef = useRef(null);
+    const skillRef = useRef(null);
     const aboutmeRef = useRef(null);
     const projectsRef = useRef(null);
 
-    const scrollToWork = () => {
-        workRef.current.scrollIntoView({ behavior: 'smooth' });
+    const scrollToSkills = () => {
+        skillRef.current.scrollIntoView({ behavior: 'smooth' });
     };
 
     const scrollToAboutMe = () => {
@@ -77,8 +79,9 @@ export default function Home() {
     const scrollToProjects = () => {
         projectsRef.current.scrollIntoView({ behavior: 'smooth' });
     }
+
     return (
-        <Box bg={bgColor} color={textColor} minHeight="100vh" py={4} px={{base: "7", md: "60"}}>
+        <Box bg={bgColor} color={textColor} minHeight="100vh" py={4} px={{base: "0", md: "60"}} width={"100%"}>
             <Box top={0} left={0} width={"100%"} zIndex={1}>
                 <HStack justifyContent={"space-between"}>
                     <Heading fontSize={"30px"}>
@@ -92,9 +95,9 @@ export default function Home() {
                                 About Me
                             </Text>
                         </Button>
-                        <Button color={textColor} backgroundColor={"transparent"} _hover={{ bg: "transparent" }} borderRadius={"100px"} onClick={scrollToWork}>
+                        <Button color={textColor} backgroundColor={"transparent"} _hover={{ bg: "transparent" }} borderRadius={"100px"} onClick={scrollToSkills}>
                             <Text as={motion.div} variants={buttonHover} whileHover="hover">
-                                Experience
+                                Skills
                             </Text>
                         </Button>
                         <Button color={textColor} backgroundColor={"transparent"} _hover={{ bg: "transparent" }} borderRadius={"100px"} onClick={scrollToProjects}>
@@ -177,7 +180,7 @@ export default function Home() {
                                     alert('Failed to download the file.');
                                 }
                             }}
-                            borderRadius={"100px"}
+                            borderRadius={"4px"}
                             backgroundColor={"#33A2F1"}
                             _hover={{
                                 backgroundColor: "#0F78A2",
@@ -185,7 +188,6 @@ export default function Home() {
                             }}
                             width={"100px"}
                             marginTop={"20px"}
-                            // thick outline
                             borderWidth={5}
                         >
                             Resume
@@ -195,7 +197,7 @@ export default function Home() {
                         display="flex"
                         w={{ base: "100%", md: "50%" }}
                         position="relative"
-                        height="110vh" // This ensures the box takes the full height of the viewport
+                        height="110vh"
                         overflow="hidden"
                         marginTop={{ base: 0, md: -100 }}
                     >
@@ -204,30 +206,60 @@ export default function Home() {
                                 src={wave.src}
                                 alt="Origami Wave"
                                 width="100%"
-                                height="auto" // Maintains aspect ratio
-                                minHeight="300px" // Minimum size to prevent it from becoming too small
-                                maxWidth="100%" // Ensures it does not stretch beyond its container
+                                height="auto"
+                                minHeight="300px"
+                                maxWidth="100%"
                                 objectFit="contain"
                             />
                         </motion.div>
                     </Box>
                 </HStack>
                 <Box>
-                    <Text ref={aboutmeRef} fontSize="70" fontWeight="bold" mt={-40}>About Me</Text>
+                    <Text ref={aboutmeRef} fontSize="60" fontWeight="bold" mt={-40}>About Me</Text>
                     <AboutMe/>
                 </Box>
                 <Box>
-                    <Text ref={workRef} fontSize="70" fontWeight="bold" mt={300}>Experience</Text>
-                    <WorkExperience/>
+                    <Text ref={skillRef} fontSize="60" fontWeight="bold" mt={300}>Skills</Text>
+                    <Skills/>
                 </Box>
                 <Box>
-                    <Text ref={projectsRef} fontSize="70" fontWeight="bold" mt={300}>Projects</Text>
+                    <Text ref={projectsRef} fontSize="60" fontWeight="bold" mt={300}>Projects</Text>
                     <ProjectsCarousel/>
                 </Box>
             </Box>
-            <Box mt={10} p={5} bg="gray.800" color="white" textAlign="center">
+            <Box mt={10} p={5} bg={useColorModeValue("white", "gray.800")} color={useColorModeValue("white", "gray.800")} textAlign="center" position="relative" overflow="hidden">
+                <HStack justifyContent="center" spacing={8}>
+                    <Button as="a" href="https://www.linkedin.com/in/anshmpatel/" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
+                        <Icon as={FaLinkedin} w={6} h={6} _hover={
+                            {
+                                borderBottom: "2px solid #0F78A2",
+                                transition: "0.3s",
+                            }}/>
+                    </Button>
+                    <Button as="a" href="https://github.com/anshpatelcs" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
+                        <Icon as={FaGithub} w={6} h={6} _hover={
+                            {
+                                borderBottom: "2px solid #0F78A2",
+                                transition: "0.3s",
+                            }}/>
+                    </Button>
+                    <Button as="a" href="mailto:hi@anshpa.tel" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
+                        <Icon as={FaEnvelope} w={6} h={6} _hover={
+                            {
+                                borderBottom: "2px solid #0F78A2",
+                                transition: "0.3s",
+                            }}/>
+                    </Button>
+                    <Button as="a" href="https://www.instagram.com/ansh.patel8/" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
+                        <Icon as={FaInstagram} w={6} h={6} _hover={
+                        {
+                            borderBottom: "2px solid #0F78A2",
+                            transition: "0.3s",
+                        }}/>
+                    </Button>
+                </HStack>
+
             </Box>
         </Box>
-
     );
 }
