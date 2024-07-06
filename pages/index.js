@@ -27,6 +27,7 @@ const buttonHover = {
     },
 };
 
+
 const typingEffect = {
     hidden: { opacity: 1 },
     visible: i => ({
@@ -81,7 +82,7 @@ export default function Home() {
     }
 
     return (
-        <Box bg={bgColor} color={textColor} minHeight="100vh" py={4} px={{base: "0", md: "60"}} width={"100%"}>
+        <Box bg={bgColor} color={textColor} minHeight="100vh" py={4} px={{base: "20", md: "20"}} width={"100%"}>
             <Box top={0} left={0} width={"100%"} zIndex={1}>
                 <HStack justifyContent={"space-between"}>
                     <Heading fontSize={"30px"}>
