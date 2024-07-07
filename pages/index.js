@@ -198,7 +198,7 @@ export default function Home() {
                         display="flex"
                         w={{ base: "0%", md: "50%" }}
                         position="relative"
-                        height={{ base: "20vh", md: "110vh" }}
+                        height={{ base: "60vh", md: "110vh" }}
                         overflow="hidden"
                         marginTop={{ base: 0, md: -100 }}
                     >

@@ -20,6 +20,24 @@ const ProjectsGrid = () => {
             githubLink: 'https://github.com/MiniHacks/aly',
             devpostLink: 'https://devpost.com/software/annote'
         },
+        {
+            id: 3,
+            title: 'Luna',
+            description: 'A voice assistant with full browser control, built at HackGT',
+            imageUrl: '/lunaa.png',
+            githubLink: 'https://github.com/MiniHacks/luna',
+            devpostLink: 'https://devpost.com/software/luna-7jviqh'
+        },
+        {
+            id: 4,
+            title: 'cardforme',
+            description: 'A website that uses your previous bank transaction history to suggest the best credit cards for you',
+            imageUrl: '/cardforme.jpeg',
+            githubLink: 'https://github.com/MiniHacks/cardforme',
+            devpostLink: 'https://devpost.com/software/cardforme'
+        }
+
+
         // Add more projects as needed
     ];
 
