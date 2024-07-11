@@ -15,6 +15,7 @@ import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { useRef } from 'react';
 import { keyframes } from '@emotion/react';
+import { useInView } from 'react-intersection-observer';
 import wave from "../public/oriwave.png";
 import WorkExperience from "./components/ui/workexperience";
 import AboutMe from "./components/ui/AboutMe";
@@ -26,7 +27,6 @@ const buttonHover = {
         borderBottom: "2px solid #0F78A2",
     },
 };
-
 
 const typingEffect = {
     hidden: { opacity: 1 },
@@ -57,6 +57,18 @@ const imageHover = {
     }
 };
 
+const fadeIn = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.6,
+            ease: "easeInOut"
+        }
+    }
+};
+
 export default function Home() {
     const { colorMode, toggleColorMode } = useColorMode();
     const textColor = useColorModeValue("black", "white");
@@ -76,14 +88,18 @@ export default function Home() {
 
     const scrollToAboutMe = () => {
         aboutmeRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+    };
     const scrollToProjects = () => {
         projectsRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+    };
+
+    const { ref: aboutMeInViewRef, inView: aboutMeInView } = useInView({ triggerOnce: true });
+    const { ref: skillsInViewRef, inView: skillsInView } = useInView({ triggerOnce: true });
+    const { ref: projectsInViewRef, inView: projectsInView } = useInView({ triggerOnce: true });
 
     return (
-        <Box bg={bgColor} color={textColor} minHeight="100vh" py={4} px={{base: "5", md: "60"}} width={"100%"}>
-            <Box top={0} left={0} width={"100%"} zIndex={1}>
+        <Box bg={bgColor} color={textColor} minHeight="100vh" py={4} px={{ base: "5", md: "60" }} width={"100%"}>
+            <Box top={0} left={0} width={"100%"} zIndex={1} font={"Poppins"}>
                 <HStack justifyContent={"space-between"}>
                     <Heading fontSize={"30px"}>
                         <Button backgroundColor={"transparent"} onClick={toggleColorMode} _hover={{ bg: "transparent" }} fontSize={"30px"}>
@@ -107,28 +123,24 @@ export default function Home() {
                             </Text>
                         </Button>
                         <Button as="a" href="https://www.linkedin.com/in/anshmpatel/" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
-                            <Icon as={FaLinkedin} w={6} h={6} _hover={
-                                {
-                                    borderBottom: "2px solid #0F78A2",
-                                    transition: "0.3s",
-                                }
-                            } />
+                            <Icon as={FaLinkedin} w={6} h={6} _hover={{
+                                borderBottom: "2px solid #0F78A2",
+                                transition: "0.3s",
+                            }} />
                         </Button>
                         <Button as="a" href="https://github.com/anshpatelcs" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
-                            <Icon as={FaGithub} w={6} h={6} _hover={
-                                {
-                                    borderBottom: "2px solid #0F78A2",
-                                    transition: "0.3s",
-                                }
-                            } />
+                            <Icon as={FaGithub} w={6} h={6} _hover={{
+                                borderBottom: "2px solid #0F78A2",
+                                transition: "0.3s",
+                            }} />
                         </Button>
                     </HStack>
                 </HStack>
             </Box>
 
-            <Box paddingTop={{base: "10", md: "20"}}>
+            <Box paddingTop={{ base: "10", md: "20" }}>
                 <HStack justifyContent={"space-between"} overflowWrap={"normal"} wrap={{ base: "wrap", md: "nowrap" }}>
-                    <Box display={"flex"} flexDirection={"column"} minHeight={"100vh"} w={{ base: "100%", md: "50%" }} marginTop={100} marginBottom={{base:"-200", md: "0"}}>
+                    <Box display={"flex"} flexDirection={"column"} minHeight={"100vh"} w={{ base: "100%", md: "50%" }} marginTop={100} marginBottom={{ base: "-200", md: "0" }}>
                         <motion.div
                             variants={typingEffect}
                             custom={0}
@@ -215,51 +227,52 @@ export default function Home() {
                         </motion.div>
                     </Box>
                 </HStack>
-                <Box>
-                    <Text ref={aboutmeRef} fontSize="60" fontWeight="bold" mt={-40}>About Me</Text>
-                    <AboutMe/>
+                <Box ref={aboutMeInViewRef}>
+                    <motion.div variants={fadeIn} initial="hidden" animate={aboutMeInView ? "visible" : "hidden"}>
+                        <Text ref={aboutmeRef} fontSize="60" fontWeight="bold" mt={-40}>About Me</Text>
+                        <AboutMe />
+                    </motion.div>
                 </Box>
-                <Box>
-                    <Text ref={skillRef} fontSize="60" fontWeight="bold" mt={300}>Skills</Text>
-                    <Skills/>
+                <Box ref={skillsInViewRef}>
+                    <motion.div variants={fadeIn} initial="hidden" animate={skillsInView ? "visible" : "hidden"}>
+                        <Text ref={skillRef} fontSize="60" fontWeight="bold" mt={300}>Skills</Text>
+                        <Skills />
+                    </motion.div>
                 </Box>
-                <Box>
-                    <Text ref={projectsRef} fontSize="60" fontWeight="bold" mt={300}>Projects</Text>
-                    <ProjectsCarousel/>
+                <Box ref={projectsInViewRef}>
+                    <motion.div variants={fadeIn} initial="hidden" animate={projectsInView ? "visible" : "hidden"}>
+                        <Text ref={projectsRef} fontSize="60" fontWeight="bold" mt={300}>Projects</Text>
+                        <ProjectsCarousel />
+                    </motion.div>
                 </Box>
             </Box>
             <Box mt={10} p={5} bg={useColorModeValue("white", "gray.800")} color={useColorModeValue("white", "gray.800")} textAlign="center" position="relative" overflow="hidden">
                 <HStack justifyContent="center" spacing={8}>
                     <Button as="a" href="https://www.linkedin.com/in/anshmpatel/" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
-                        <Icon as={FaLinkedin} w={6} h={6} _hover={
-                            {
-                                borderBottom: "2px solid #0F78A2",
-                                transition: "0.3s",
-                            }}/>
-                    </Button>
-                    <Button as="a" href="https://github.com/anshpatelcs" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
-                        <Icon as={FaGithub} w={6} h={6} _hover={
-                            {
-                                borderBottom: "2px solid #0F78A2",
-                                transition: "0.3s",
-                            }}/>
-                    </Button>
-                    <Button as="a" href="mailto:hi@anshpa.tel" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
-                        <Icon as={FaEnvelope} w={6} h={6} _hover={
-                            {
-                                borderBottom: "2px solid #0F78A2",
-                                transition: "0.3s",
-                            }}/>
-                    </Button>
-                    <Button as="a" href="https://www.instagram.com/ansh.patel8/" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
-                        <Icon as={FaInstagram} w={6} h={6} _hover={
-                        {
+                        <Icon as={FaLinkedin} w={6} h={6} _hover={{
                             borderBottom: "2px solid #0F78A2",
                             transition: "0.3s",
-                        }}/>
+                        }} />
+                    </Button>
+                    <Button as="a" href="https://github.com/anshpatelcs" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
+                        <Icon as={FaGithub} w={6} h={6} _hover={{
+                            borderBottom: "2px solid #0F78A2",
+                            transition: "0.3s",
+                        }} />
+                    </Button>
+                    <Button as="a" href="mailto:hi@anshpa.tel" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
+                        <Icon as={FaEnvelope} w={6} h={6} _hover={{
+                            borderBottom: "2px solid #0F78A2",
+                            transition: "0.3s",
+                        }} />
+                    </Button>
+                    <Button as="a" href="https://www.instagram.com/ansh.patel8/" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
+                        <Icon as={FaInstagram} w={6} h={6} _hover={{
+                            borderBottom: "2px solid #0F78A2",
+                            transition: "0.3s",
+                        }} />
                     </Button>
                 </HStack>
-
             </Box>
         </Box>
     );
