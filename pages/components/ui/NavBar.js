@@ -1,6 +1,5 @@
-// components/ui/NavBar.js
-import React from 'react';
-import { Box, Button, Heading, HStack, Icon, Text, useColorModeValue } from "@chakra-ui/react";
+import React, { useEffect, useState } from 'react';
+import { Box, Button, Heading, HStack, Icon, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
@@ -11,7 +10,16 @@ const buttonHover = {
 };
 
 const NavBar = ({ textColor, toggleColorMode, scrollToAboutMe, scrollToSkills, scrollToProjects }) => {
+    const { colorMode } = useColorMode();
     const bg = useColorModeValue("white", "gray.800");
+
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) return null; // Prevent rendering until the color mode is determined
 
     return (
         <Box
@@ -22,6 +30,7 @@ const NavBar = ({ textColor, toggleColorMode, scrollToAboutMe, scrollToSkills, s
             zIndex={1}
             bg={bg}
             font={"Poppins"}
+            transition="background-color 0.3s ease"
         >
             <HStack justifyContent={"space-between"} p={4}>
                 <HStack>
