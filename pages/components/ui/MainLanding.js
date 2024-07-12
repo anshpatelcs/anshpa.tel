@@ -1,24 +1,10 @@
 import React from 'react';
-import { Box, Button, HStack, Image as ChakraImage } from "@chakra-ui/react";
+import { Box, Button, HStack, Image as ChakraImage, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-const typingEffect = {
-    hidden: { opacity: 1 },
-    visible: i => ({
-        opacity: 1,
-        transition: {
-            delay: i * 0.1,
-            staggerChildren: 0.02,
-        }
-    })
-};
-
-const letterAnimation = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-        opacity: 1,
-        y: 0
-    }
+const fadeInEffect = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.8 } }
 };
 
 const imageHover = {
@@ -45,49 +31,27 @@ const MainLanding = ({ textColor, subTextColor }) => {
         >
             <Box display={"flex"} flexDirection={"column"} minHeight={"100vh"} w={{ base: "100%", md: "50%" }} marginTop={100} marginBottom={{ base: "-200", md: "0" }}>
                 <motion.div
-                    variants={typingEffect}
-                    custom={0}
                     initial="hidden"
                     animate="visible"
+                    variants={fadeInEffect}
                 >
-                    {introText.split("").map((char, index) => (
-                        <motion.span key={index} variants={letterAnimation} style={{ fontSize: "80px", fontWeight: "bold", color: "#33A2F1", lineHeight: { base: "-12", md: "1.2" } }}>
-                            {char}
-                        </motion.span>
-                    ))}
-                </motion.div>
-                <motion.div
-                    variants={typingEffect}
-                    custom={1}
-                    initial="hidden"
-                    animate="visible"
-                    style={{ marginTop: "-20px" }}
-                >
-                    {roleText.split("").map((char, index) => (
-                        <motion.span key={index} variants={letterAnimation} style={{ fontSize: "50px", fontWeight: "bold", lineHeight: { base: "-12", md: "1.1" } }}>
-                            {char}
-                        </motion.span>
-                    ))}
-                </motion.div>
-                <motion.div
-                    variants={typingEffect}
-                    custom={2}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    {bioText.split("").map((char, index) => (
-                        <motion.span key={index} variants={letterAnimation} style={{ fontSize: "25px", color: subTextColor }}>
-                            {char}
-                        </motion.span>
-                    ))}
+                    <Text fontSize={{ base: "70px", md: "80px" }} fontWeight="bold" color="#33A2F1" marginBottom="-4">
+                        {introText}
+                    </Text>
+                    <Text fontSize={{ base: "45px", md: "50px" }} fontWeight="bold">
+                        {roleText}
+                    </Text>
+                    <Text fontSize="25px" color={subTextColor}>
+                        {bioText}
+                    </Text>
                 </motion.div>
                 <Button
-                    color={"white"}
+                    color="white"
                     onClick={() => {
                         try {
                             const link = document.createElement('a');
-                            link.href = '/resume.pdf';  // Make sure this is the correct path to your file
-                            link.download = 'Ansh_Patel_Resume.pdf';  // This is the filename that will be suggested to download
+                            link.href = '/resume.pdf';
+                            link.download = 'Ansh_Patel_Resume.pdf';
                             document.body.appendChild(link);
                             link.click();
                             document.body.removeChild(link);
@@ -96,14 +60,14 @@ const MainLanding = ({ textColor, subTextColor }) => {
                             alert('Failed to download the file.');
                         }
                     }}
-                    borderRadius={"4px"}
-                    backgroundColor={"#33A2F1"}
+                    borderRadius="4px"
+                    backgroundColor="#33A2F1"
                     _hover={{
                         backgroundColor: "#0F78A2",
                         transition: "0.3s",
                     }}
-                    width={"100px"}
-                    marginTop={"20px"}
+                    width="100px"
+                    marginTop="20px"
                     borderWidth={5}
                 >
                     Resume
