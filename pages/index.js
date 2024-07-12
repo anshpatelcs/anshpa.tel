@@ -118,7 +118,7 @@ export default function Home() {
                 <Box paddingTop={{ base: "0", md: "20" }}>
                     <Box ref={aboutMeInViewRef}>
                         <motion.div variants={fadeIn} initial="hidden" animate={aboutMeInView ? "visible" : "hidden"}>
-                            <Text ref={aboutmeRef} fontSize="60" fontWeight="bold" mt={-40}>About Me</Text>
+                            <Text ref={aboutmeRef} fontSize="60" fontWeight="bold" mt={{base: "-100", md: "-40"}}>About Me</Text>
                             <AboutMe />
                         </motion.div>
                     </Box>
