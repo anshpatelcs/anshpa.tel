@@ -35,13 +35,13 @@ const MainLanding = ({ textColor, subTextColor }) => {
                     animate="visible"
                     variants={fadeInEffect}
                 >
-                    <Text fontSize={{ base: "70px", md: "80px" }} fontWeight="bold" color="#33A2F1" marginBottom="-4">
+                    <Text fontSize={{ base: "65px", md: "80px" }} fontWeight="bold" color="#33A2F1" marginBottom="-4">
                         {introText}
                     </Text>
-                    <Text fontSize={{ base: "45px", md: "50px" }} fontWeight="bold">
+                    <Text fontSize={{ base: "40px", md: "50px" }} fontWeight="bold">
                         {roleText}
                     </Text>
-                    <Text fontSize="25px" color={subTextColor}>
+                    <Text fontSize="23px" color={subTextColor}>
                         {bioText}
                     </Text>
                 </motion.div>
