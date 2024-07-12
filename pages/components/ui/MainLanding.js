@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, HStack, Text, Image as ChakraImage } from "@chakra-ui/react";
+import { Box, Button, HStack, Image as ChakraImage } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 const typingEffect = {
@@ -51,7 +51,7 @@ const MainLanding = ({ textColor, subTextColor }) => {
                     animate="visible"
                 >
                     {introText.split("").map((char, index) => (
-                        <motion.span key={index} variants={letterAnimation} style={{ fontSize: "80px", fontWeight: "bold", color: "#33A2F1" }}>
+                        <motion.span key={index} variants={letterAnimation} style={{ fontSize: "80px", fontWeight: "bold", color: "#33A2F1", lineHeight: { base: "-12", md: "1.2" } }}>
                             {char}
                         </motion.span>
                     ))}
@@ -64,7 +64,7 @@ const MainLanding = ({ textColor, subTextColor }) => {
                     style={{ marginTop: "-20px" }}
                 >
                     {roleText.split("").map((char, index) => (
-                        <motion.span key={index} variants={letterAnimation} style={{ fontSize: "50px", fontWeight: "bold" }}>
+                        <motion.span key={index} variants={letterAnimation} style={{ fontSize: "50px", fontWeight: "bold", lineHeight: { base: "-12", md: "1.1" } }}>
                             {char}
                         </motion.span>
                     ))}
