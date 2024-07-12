@@ -42,7 +42,6 @@ const MainLanding = ({ textColor, subTextColor }) => {
             overflowWrap={"normal"}
             wrap={{ base: "wrap", md: "nowrap" }}
             mt={{ base: 16, md: 20 }} // Adjust the margin-top to create spacing
-            pt={16} // Add padding-top to create more spacing if needed
         >
             <Box display={"flex"} flexDirection={"column"} minHeight={"100vh"} w={{ base: "100%", md: "50%" }} marginTop={100} marginBottom={{ base: "-200", md: "0" }}>
                 <motion.div

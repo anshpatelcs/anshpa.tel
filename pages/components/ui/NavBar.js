@@ -24,11 +24,17 @@ const NavBar = ({ textColor, toggleColorMode, scrollToAboutMe, scrollToSkills, s
             font={"Poppins"}
         >
             <HStack justifyContent={"space-between"} p={4}>
-                <Heading fontSize={"30px"}>
-                    <Button backgroundColor={"transparent"} onClick={toggleColorMode} _hover={{ bg: "transparent" }} fontSize={"30px"}>
-                        AP
+                <HStack>
+                    <Button
+                        backgroundColor={"transparent"}
+                        onClick={toggleColorMode}
+                        _hover={{ bg: "transparent" }}
+                        fontSize={"30px"}
+                        paddingLeft={"0"}
+                    >
+                        <Heading fontSize={"30px"}>AP</Heading>
                     </Button>
-                </Heading>
+                </HStack>
                 <HStack spacing={6}>
                     <Button color={textColor} backgroundColor={"transparent"} _hover={{ bg: "transparent" }} borderRadius={"100px"} onClick={scrollToAboutMe}>
                         <Text as={motion.div} variants={buttonHover} whileHover="hover">

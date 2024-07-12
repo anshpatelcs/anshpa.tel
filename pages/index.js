@@ -2,27 +2,22 @@ import Head from 'next/head';
 import {
     Box,
     Button,
-    Heading,
     HStack,
     Text,
-    VStack,
     useColorMode,
     useColorModeValue,
-    Image as ChakraImage,
     Icon
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { useRef } from 'react';
-import { keyframes } from '@emotion/react';
 import { useInView } from 'react-intersection-observer';
-import wave from "../public/oriwave.png";
-import WorkExperience from "./components/ui/workexperience";
 import AboutMe from "./components/ui/AboutMe";
 import ProjectsCarousel from "./components/ui/ProjectsCarousel";
 import Skills from "./components/ui/Skills";
 import NavBar from './components/ui/NavBar';  // Import NavBar component
 import MainLanding from './components/ui/MainLanding';  // Import MainLanding component
+import Footer from './components/ui/Footer';  // Import Footer component
 
 const buttonHover = {
     hover: {
@@ -104,7 +99,7 @@ export default function Home() {
             color={textColor}
             minHeight="100vh"
             py={4}
-            px={{ base: "5", md: "60" }}
+            px={{ base: "0", md: "60" }}
             width={"100%"}
         >
             <NavBar
@@ -115,58 +110,33 @@ export default function Home() {
                 scrollToProjects={scrollToProjects}
                 position="fixed"
             />
-            <MainLanding
-                textColor={textColor}
-                subTextColor={subTextColor}
-            />
-            <Box paddingTop={{ base: "10", md: "20" }}>
-                <Box ref={aboutMeInViewRef}>
-                    <motion.div variants={fadeIn} initial="hidden" animate={aboutMeInView ? "visible" : "hidden"}>
-                        <Text ref={aboutmeRef} fontSize="60" fontWeight="bold" mt={-40}>About Me</Text>
-                        <AboutMe />
-                    </motion.div>
-                </Box>
-                <Box ref={skillsInViewRef}>
-                    <motion.div variants={fadeIn} initial="hidden" animate={skillsInView ? "visible" : "hidden"}>
-                        <Text ref={skillRef} fontSize="60" fontWeight="bold" mt={300}>Skills</Text>
-                        <Skills />
-                    </motion.div>
-                </Box>
-                <Box ref={projectsInViewRef}>
-                    <motion.div variants={fadeIn} initial="hidden" animate={projectsInView ? "visible" : "hidden"}>
-                        <Text ref={projectsRef} fontSize="60" fontWeight="bold" mt={300}>Projects</Text>
-                        <ProjectsCarousel />
-                    </motion.div>
+            <Box p={3}> {/* Add padding here */}
+                <MainLanding
+                    textColor={textColor}
+                    subTextColor={subTextColor}
+                />
+                <Box paddingTop={{ base: "10", md: "20" }}>
+                    <Box ref={aboutMeInViewRef}>
+                        <motion.div variants={fadeIn} initial="hidden" animate={aboutMeInView ? "visible" : "hidden"}>
+                            <Text ref={aboutmeRef} fontSize="60" fontWeight="bold" mt={-40}>About Me</Text>
+                            <AboutMe />
+                        </motion.div>
+                    </Box>
+                    <Box ref={skillsInViewRef}>
+                        <motion.div variants={fadeIn} initial="hidden" animate={skillsInView ? "visible" : "hidden"}>
+                            <Text ref={skillRef} fontSize="60" fontWeight="bold" mt={300}>Skills</Text>
+                            <Skills />
+                        </motion.div>
+                    </Box>
+                    <Box ref={projectsInViewRef}>
+                        <motion.div variants={fadeIn} initial="hidden" animate={projectsInView ? "visible" : "hidden"}>
+                            <Text ref={projectsRef} fontSize="60" fontWeight="bold" mt={300}>Projects</Text>
+                            <ProjectsCarousel />
+                        </motion.div>
+                    </Box>
                 </Box>
             </Box>
-            <Box mt={10} p={5} bg={useColorModeValue("white", "gray.800")} color={useColorModeValue("white", "gray.800")} textAlign="center" position="relative" overflow="hidden">
-                <HStack justifyContent="center" spacing={8}>
-                    <Button as="a" href="https://www.linkedin.com/in/anshmpatel/" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
-                        <Icon as={FaLinkedin} w={6} h={6} _hover={{
-                            borderBottom: "2px solid #0F78A2",
-                            transition: "0.3s",
-                        }} />
-                    </Button>
-                    <Button as="a" href="https://github.com/anshpatelcs" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
-                        <Icon as={FaGithub} w={6} h={6} _hover={{
-                            borderBottom: "2px solid #0F78A2",
-                            transition: "0.3s",
-                        }} />
-                    </Button>
-                    <Button as="a" href="mailto:hi@anshpa.tel" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
-                        <Icon as={FaEnvelope} w={6} h={6} _hover={{
-                            borderBottom: "2px solid #0F78A2",
-                            transition: "0.3s",
-                        }} />
-                    </Button>
-                    <Button as="a" href="https://www.instagram.com/ansh.patel8/" target="_blank" rel="noreferrer" backgroundColor={"transparent"} _hover={{ bg: "transparent" }}>
-                        <Icon as={FaInstagram} w={6} h={6} _hover={{
-                            borderBottom: "2px solid #0F78A2",
-                            transition: "0.3s",
-                        }} />
-                    </Button>
-                </HStack>
-            </Box>
+            <Footer />  {/* Use the Footer component here */}
         </Box>
     );
 }
