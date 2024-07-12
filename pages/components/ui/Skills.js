@@ -18,8 +18,7 @@ const float = keyframes`
 
 const skills = {
     frontend: [
-        { name: 'React', icon: FaReact },
-        { name: 'React Native', icon: FaReact },
+        { name: 'React / React Native', icon: FaReact },
         { name: 'JavaScript', icon: FaJs },
         { name: 'TypeScript', icon: SiTypescript },
         { name: 'HTML5', icon: FaHtml5 },
@@ -34,7 +33,6 @@ const skills = {
         { name: 'Java', icon: FaJava },
         { name: 'Node.js', icon: FaNodeJs },
         { name: 'FastAPI', icon: SiFastapi },
-        { name: 'Flask', icon: FaPython },
         { name: 'MySQL', icon: SiMysql },
         { name: 'MongoDB', icon: SiMongodb },
         { name: 'Firebase/Firestore', icon: SiFirebase },
