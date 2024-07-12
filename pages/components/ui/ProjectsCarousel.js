@@ -105,7 +105,7 @@ const ProjectsGrid = () => {
         {
             id: 3,
             title: 'Luna',
-            description: 'A voice assistant with full browser control, built at HackGT',
+            description: 'A voice assistant with full browser control, built at HackGT.',
             imageUrl: '/lunaa.jpeg',
             githubLink: 'https://github.com/MiniHacks/luna',
             devpostLink: 'https://devpost.com/software/luna-7jviqh',
@@ -113,8 +113,8 @@ const ProjectsGrid = () => {
         },
         {
             id: 4,
-            title: 'cardforme',
-            description: 'A website that uses your previous bank transaction history to suggest the best credit cards for you',
+            title: 'cardforme, 4th @ HackUIowa',
+            description: 'A website that uses your previous bank transaction history to suggest the best credit cards for you.',
             imageUrl: '/cardforme.jpeg',
             githubLink: 'https://github.com/MiniHacks/cardforme',
             devpostLink: 'https://devpost.com/software/cardforme',

@@ -1,15 +1,10 @@
-import Head from 'next/head';
 import {
     Box,
-    Button,
-    HStack,
     Text,
     useColorMode,
     useColorModeValue,
-    Icon
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import AboutMe from "./components/ui/AboutMe";
@@ -18,41 +13,6 @@ import Skills from "./components/ui/Skills";
 import NavBar from './components/ui/NavBar';  // Import NavBar component
 import MainLanding from './components/ui/MainLanding';  // Import MainLanding component
 import Footer from './components/ui/Footer';  // Import Footer component
-
-const buttonHover = {
-    hover: {
-        borderBottom: "2px solid #0F78A2",
-    },
-};
-
-const typingEffect = {
-    hidden: { opacity: 1 },
-    visible: i => ({
-        opacity: 1,
-        transition: {
-            delay: i * 0.1,
-            staggerChildren: 0.02,
-        }
-    })
-};
-
-const letterAnimation = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-        opacity: 1,
-        y: 0
-    }
-};
-
-const imageHover = {
-    hover: {
-        scale: 1.05, // Scales the image up by 5%
-        transition: {
-            duration: 0.3,
-            ease: "easeInOut"
-        }
-    }
-};
 
 const fadeIn = {
     hidden: { opacity: 0, y: 50 },
