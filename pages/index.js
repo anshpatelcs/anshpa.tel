@@ -115,7 +115,7 @@ export default function Home() {
                     textColor={textColor}
                     subTextColor={subTextColor}
                 />
-                <Box paddingTop={{ base: "10", md: "20" }}>
+                <Box paddingTop={{ base: "0", md: "20" }}>
                     <Box ref={aboutMeInViewRef}>
                         <motion.div variants={fadeIn} initial="hidden" animate={aboutMeInView ? "visible" : "hidden"}>
                             <Text ref={aboutmeRef} fontSize="60" fontWeight="bold" mt={-40}>About Me</Text>
