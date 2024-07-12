@@ -76,16 +76,17 @@ export default function Home() {
     const aboutmeRef = useRef(null);
     const projectsRef = useRef(null);
 
-    const scrollToSkills = () => {
-        skillRef.current.scrollIntoView({ behavior: 'smooth' });
+    // Set this to the height of your navbar
+    const navbarHeight = 120;
+
+    const scrollTo = (ref) => {
+        const y = ref.current.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+        window.scrollTo({ top: y, behavior: 'smooth' });
     };
 
-    const scrollToAboutMe = () => {
-        aboutmeRef.current.scrollIntoView({ behavior: 'smooth' });
-    };
-    const scrollToProjects = () => {
-        projectsRef.current.scrollIntoView({ behavior: 'smooth' });
-    };
+    const scrollToSkills = () => scrollTo(skillRef);
+    const scrollToAboutMe = () => scrollTo(aboutmeRef);
+    const scrollToProjects = () => scrollTo(projectsRef);
 
     const { ref: aboutMeInViewRef, inView: aboutMeInView } = useInView({ triggerOnce: true });
     const { ref: skillsInViewRef, inView: skillsInView } = useInView({ triggerOnce: true });
