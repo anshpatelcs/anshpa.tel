@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Button, HStack, Image as ChakraImage, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Image as ChakraImage, Text, useColorMode } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { css, keyframes } from "@emotion/react";
 
 const fadeInEffect = {
     hidden: { opacity: 0 },
@@ -17,7 +18,16 @@ const imageHover = {
     }
 };
 
+const buttonHover = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+`;
+
 const MainLanding = ({ textColor, subTextColor }) => {
+    const { colorMode } = useColorMode();
+    const isDark = colorMode === 'dark';
+
     const introText = "Hi, I'm Ansh";
     const roleText = "Software Engineer";
     const bioText = "Currently a computer science student at the University of Minnesota.";
@@ -45,33 +55,44 @@ const MainLanding = ({ textColor, subTextColor }) => {
                         {bioText}
                     </Text>
                 </motion.div>
-                <Button
-                    color="white"
-                    onClick={() => {
-                        try {
-                            const link = document.createElement('a');
-                            link.href = '/resume.pdf';
-                            link.download = 'Ansh_Patel_Resume.pdf';
-                            document.body.appendChild(link);
-                            link.click();
-                            document.body.removeChild(link);
-                        } catch (error) {
-                            console.error('Error downloading the file: ', error);
-                            alert('Failed to download the file.');
-                        }
-                    }}
-                    borderRadius="4px"
-                    backgroundColor="#33A2F1"
-                    _hover={{
-                        backgroundColor: "#0F78A2",
-                        transition: "0.3s",
-                    }}
-                    width="100px"
-                    marginTop="20px"
-                    borderWidth={5}
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={fadeInEffect}
                 >
-                    Resume
-                </Button>
+                    <Button
+                        color="white"
+                        onClick={() => {
+                            try {
+                                const link = document.createElement('a');
+                                link.href = '/resume.pdf';
+                                link.download = 'Ansh_Patel_Resume.pdf';
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                            } catch (error) {
+                                console.error('Error downloading the file: ', error);
+                                alert('Failed to download the file.');
+                            }
+                        }}
+                        borderRadius="4px"
+                        backgroundColor={isDark ? "#2D3748" : "#F6E05E"}
+                        css={css`
+                            background: ${isDark ? 'linear-gradient(270deg, #0F78A2, #63B3ED)' : 'linear-gradient(270deg, #F6E05E, #ECC94B)'};
+                            background-size: 200% 200%;
+                            transition: background-position 0.5s ease-in-out;
+                        `}
+                        _hover={{
+                            animation: `${buttonHover} 1s forwards`,
+                        }}
+                        borderWidth={5}
+                        borderColor={isDark ? "#0F78A2" : "#ECC94B"}
+                        width="100px"
+                        marginTop="20px"
+                    >
+                        Resume
+                    </Button>
+                </motion.div>
             </Box>
             <Box
                 display="flex"
