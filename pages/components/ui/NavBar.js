@@ -1,6 +1,6 @@
 // components/ui/NavBar.js
-import React, { useState, useEffect } from 'react';
-import { Box, Button, Heading, HStack, Icon, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import React from 'react';
+import { Box, Button, Heading, HStack, Icon, Text, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
@@ -11,25 +11,7 @@ const buttonHover = {
 };
 
 const NavBar = ({ textColor, toggleColorMode, scrollToAboutMe, scrollToSkills, scrollToProjects }) => {
-    const [isScrolled, setIsScrolled] = useState(false);
-
-    const handleScroll = () => {
-        if (window.scrollY > 0) {
-            setIsScrolled(true);
-        } else {
-            setIsScrolled(false);
-        }
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
     const bg = useColorModeValue("white", "gray.800");
-    const shadow = isScrolled ? "0 4px 6px rgba(0, 0, 0, 0.1)" : "none";
 
     return (
         <Box
@@ -39,8 +21,6 @@ const NavBar = ({ textColor, toggleColorMode, scrollToAboutMe, scrollToSkills, s
             width={"100%"}
             zIndex={1}
             bg={bg}
-            boxShadow={shadow}
-            transition="box-shadow 0.3s ease-in-out"
             font={"Poppins"}
         >
             <HStack justifyContent={"space-between"} p={4}>
