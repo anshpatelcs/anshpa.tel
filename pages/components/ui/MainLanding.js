@@ -63,24 +63,14 @@ const MainLanding = ({ textColor, subTextColor }) => {
                     <Button
                         color="white"
                         onClick={() => {
-                            try {
-                                const link = document.createElement('a');
-                                link.href = '/resume.pdf';
-                                link.download = 'Ansh_Patel_Resume.pdf';
-                                document.body.appendChild(link);
-                                link.click();
-                                document.body.removeChild(link);
-                            } catch (error) {
-                                console.error('Error downloading the file: ', error);
-                                alert('Failed to download the file.');
-                            }
+                            window.open('/resume.pdf', '_blank');
                         }}
                         borderRadius="4px"
                         backgroundColor={isDark ? "#2D3748" : "#F6E05E"}
                         css={css`
-                            background: ${isDark ? 'linear-gradient(270deg, #0F78A2, #63B3ED)' : 'linear-gradient(270deg, #F6E05E, #ECC94B)'};
-                            background-size: 200% 200%;
-                            transition: background-position 0.5s ease-in-out;
+                          background: ${isDark ? 'linear-gradient(270deg, #0F78A2, #63B3ED)' : 'linear-gradient(270deg, #F6E05E, #ECC94B)'};
+                          background-size: 200% 200%;
+                          transition: background-position 0.5s ease-in-out;
                         `}
                         _hover={{
                             animation: `${buttonHover} 1s forwards`,
