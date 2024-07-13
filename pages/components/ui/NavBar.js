@@ -52,7 +52,7 @@ const NavBar = ({ textColor, toggleColorMode, scrollToAboutMe, scrollToSkills, s
                         </Heading>
                     </Button>
                 </HStack>
-                <HStack spacing={6}>
+                <HStack spacing={{base: 1, md: 2}}>
                     <Button color={textColor} backgroundColor={"transparent"} _hover={{ bg: "transparent" }} borderRadius={"100px"} onClick={scrollToAboutMe}>
                         <Text as={motion.div} variants={buttonHover} whileHover="hover">
                             About Me
