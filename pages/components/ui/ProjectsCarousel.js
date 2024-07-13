@@ -96,7 +96,7 @@ const ProjectsGrid = () => {
         {
             id: 2,
             title: 'Annote, 1st Place @ HackUIowa',
-            description: 'Notetaking app with speech-to-text transcription, apple pencil support, and more.',
+            description: 'Notetaking app with speech-to-text transcription, Apple Pencil support, and more.',
             imageUrl: '/annote.png',
             githubLink: 'https://github.com/MiniHacks/annote',
             devpostLink: 'https://devpost.com/software/annote',

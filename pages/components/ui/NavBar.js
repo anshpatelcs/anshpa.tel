@@ -29,7 +29,7 @@ const NavBar = ({ textColor, toggleColorMode, scrollToAboutMe, scrollToSkills, s
             width={"100%"}
             zIndex={1}
             bg={bg}
-            font={"Poppins"}
+            fontFamily={"Poppins, sans-serif"}
             transition="background-color 0.3s ease"
         >
             <HStack justifyContent={"space-between"} p={4}>
@@ -41,7 +41,15 @@ const NavBar = ({ textColor, toggleColorMode, scrollToAboutMe, scrollToSkills, s
                         fontSize={"30px"}
                         paddingLeft={"0"}
                     >
-                        <Heading fontSize={"30px"}>AP</Heading>
+                        <Heading
+                            fontSize={"40px"}
+                            style={{
+                                fontFamily: 'var(--font-museo)',
+                                letterSpacing: '-0.27em',
+                            }}
+                        >
+                            amp
+                        </Heading>
                     </Button>
                 </HStack>
                 <HStack spacing={6}>
