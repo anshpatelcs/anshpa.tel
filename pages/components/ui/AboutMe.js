@@ -19,7 +19,7 @@ const AboutMe = () => {
     };
 
     return (
-        <MotionFlex
+        <Box
             direction="column"
             align="center"
             py={5}
@@ -27,17 +27,15 @@ const AboutMe = () => {
             color={textColor}
             borderRadius="lg"
             boxShadow="xl"
-            initial="initial"
-            animate="animate"
-            whileHover="hover"
-            layout
+            _hover={{ opacity: "1.0", transform: "scale(1.01)" }}
+            transition="all 0.2s ease-in-out"
         >
             <Box mb={4} mt={-12}>
                 <ChakraImage
                     borderRadius="full"
                     boxSize="150px"
-                    src="/oriwave.png"
-                    alt="Your Name"
+                    src="/anshpatel.png"
+                    alt="Ansh Patel"
                     boxShadow="2xl"
                 />
             </Box>
@@ -46,7 +44,7 @@ const AboutMe = () => {
                 Passionate Software Engineer | Tech Innovator | Student
             </Text>
             <Button mt={5} colorScheme="yellow" onClick={handleConnectClick}>Connect with Me</Button>
-        </MotionFlex>
+        </Box>
     );
 };
 
