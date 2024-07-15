@@ -30,7 +30,7 @@ const AboutMe = () => {
             _hover={{ opacity: "1.0", transform: "scale(1.01)" }}
             transition="all 0.2s ease-in-out"
         >
-            <Box mb={4} mt={-12}>
+            <Box mb={4} mt={-8}>
                 <ChakraImage
                     borderRadius="full"
                     boxSize="150px"
