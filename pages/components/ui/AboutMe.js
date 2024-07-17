@@ -41,9 +41,9 @@ const AboutMe = () => {
             </Box>
             <Text fontSize="xl" fontWeight="bold">Ansh Patel</Text>
             <Text fontSize="md" textAlign="justify" justifyContent="space-between" px={8} py={2}>
-                Hi there 👋 I'm Ansh Patel, a Computer Science student at the University of Minnesota with a passion for software engineering.
-                As an aspiring developer, I'm always seeking out new challenges to build upon my skills, often through hackathons and personal projects.
-                When I'm not coding, I enjoy playing and watching sports, traveling to new places, and exploring different cultures.
+                Hi there 👋 I&apos;m Ansh Patel, a Computer Science student at the University of Minnesota with a passion for software engineering.
+                As an aspiring developer, I&apos;m always seeking out new challenges to build upon my skills, often through hackathons and personal projects.
+                When I&apos;m not coding, I enjoy playing and watching sports, traveling to new places, and exploring different cultures.
             </Text>
             <Button mt={2} colorScheme="yellow" onClick={handleConnectClick}>Connect with Me</Button>
         </Box>
