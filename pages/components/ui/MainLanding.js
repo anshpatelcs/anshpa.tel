@@ -8,15 +8,10 @@ const fadeInEffect = {
     visible: { opacity: 1, transition: { duration: 0.8 } }
 };
 
-const imageHover = {
-    hover: {
-        scale: 1.05, // Scales the image up by 5%
-        transition: {
-            duration: 0.3,
-            ease: "easeInOut"
-        }
-    }
-};
+const bobbing = keyframes`
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+`;
 
 const buttonHover = keyframes`
   0% { background-position: 0% 50%; }
@@ -34,12 +29,12 @@ const MainLanding = ({ textColor, subTextColor }) => {
 
     return (
         <HStack
-            justifyContent={"space-between"}
-            overflowWrap={"normal"}
+            justifyContent="space-between"
+            overflowWrap="normal"
             wrap={{ base: "wrap", md: "nowrap" }}
-            mt={{ base: 16, md: 20 }} // Adjust the margin-top to create spacing
+            mt={{ base: 16, md: 20 }}
         >
-            <Box display={"flex"} flexDirection={"column"} minHeight={"100vh"} w={{ base: "100%", md: "50%" }} marginTop={100} marginBottom={{ base: "-200", md: "0" }}>
+            <Box display="flex" flexDirection="column" minHeight="100vh" w={{ base: "100%", md: "50%" }} marginTop={100} marginBottom={{ base: "-200", md: "0" }}>
                 <motion.div
                     initial="hidden"
                     animate="visible"
@@ -86,21 +81,28 @@ const MainLanding = ({ textColor, subTextColor }) => {
             </Box>
             <Box
                 display="flex"
+                justifyContent="flex-end"
                 w={{ base: "0%", md: "50%" }}
                 position="relative"
                 height={{ base: "60vh", md: "110vh" }}
                 overflow="hidden"
-                marginTop={{ base: 0, md: -100 }}
+                marginTop={{ base: 0, md: -84 }}
+                marginRight={{ base: 0, md: -10 }}
             >
-                <motion.div whileHover="hover" variants={imageHover}>
+                <motion.div
+                    css={css`
+                        animation: ${bobbing} 3s ease-in-out infinite;
+                    `}
+                >
                     <ChakraImage
-                        src="/oriwave.png"
-                        alt="Origami Wave"
-                        width="100%"
+                        src="/waterfall.png"
+                        alt="waterfall"
+                        width={{ base: "80%", md: "90%" }}
                         height="auto"
                         minHeight="300px"
                         maxWidth="100%"
                         objectFit="contain"
+                        borderRadius="30px"
                     />
                 </motion.div>
             </Box>
